@@ -10,7 +10,7 @@ import styles from './Notes.module.css'
 //   runtime = 'nodejs',
 //   preferredRegion = 'auto'
 
-export const revalidate = false
+export const dynamic = 'force-dynamic'
 
 async function getNotes() {
   const pb = new PocketBase('https://crooked-soccer.pockethost.io')
