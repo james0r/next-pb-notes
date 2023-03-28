@@ -1,6 +1,13 @@
 import styles from '../Notes.module.css'
 import PocketBase from 'pocketbase'
 
+export const dynamic = 'auto',
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = 'auto',
+  runtime = 'nodejs',
+  preferredRegion = 'auto'
+
 async function getNote(noteId: string) {
   // const res = await fetch(
   //   `https://crooked-soccer.pockethost.io/api/collections/notes/records/${noteId}`
