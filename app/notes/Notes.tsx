@@ -1,4 +1,5 @@
 'use client'
+
 import styles from './Notes.module.css'
 import Link from 'next/link'
 

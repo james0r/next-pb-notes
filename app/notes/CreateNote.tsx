@@ -18,13 +18,16 @@ export default function CreateNote() {
 
   const router = useRouter();
 
-  const create = async() => {
+  const create = async(event: any) => {
+    event.preventDefault();
     const db = new PocketBase('https://crooked-soccer.pockethost.io');
 
-    await db.collection('notes').create({
+    const something = await db.collection('notes').create({
       title,
       content,
     });
+
+    console.log(something)
 
     // await fetch('https://crooked-soccer.pockethost.io/api/collections/notes/records', {
     //   method: 'POST',
