@@ -1,18 +1,22 @@
-import styles from '../Notes.module.css';
+import styles from '../Notes.module.css'
+import PocketBase from 'pocketbase'
 
 async function getNote(noteId: string) {
-  const res = await fetch(
-    `https://crooked-soccer.pockethost.io/api/collections/notes/records/${noteId}`,
-    {
-      next: { revalidate: 10 },
-    }
-  );
-  const data = await res.json();
-  return data;
+  // const res = await fetch(
+  //   `https://crooked-soccer.pockethost.io/api/collections/notes/records/${noteId}`
+  // )
+  // const data = await res.json()
+  // return data
+
+  const pb = new PocketBase('https://crooked-soccer.pockethost.io')
+
+  const record = await pb.collection('notes').getOne(noteId)
+
+  return record;
 }
 
 export default async function NotePage({ params }: any) {
-  const note = await getNote(params.id);
+  const note = await getNote(params.id)
 
   return (
     <div>
@@ -23,5 +27,5 @@ export default async function NotePage({ params }: any) {
         <p>{note.created}</p>
       </div>
     </div>
-  );
+  )
 }

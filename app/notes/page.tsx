@@ -3,14 +3,12 @@ import Notes from './Notes'
 import PocketBase from 'pocketbase'
 import styles from './Notes.module.css'
 
-// export const dynamic = 'auto',
-//   dynamicParams = true,
-//   revalidate = 0,
-//   fetchCache = 'auto',
-//   runtime = 'nodejs',
-//   preferredRegion = 'auto'
-
-export const dynamic = 'force-dynamic'
+export const dynamic = 'auto',
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = 'auto',
+  runtime = 'nodejs',
+  preferredRegion = 'auto'
 
 async function getNotes() {
   const pb = new PocketBase('https://crooked-soccer.pockethost.io')
@@ -18,7 +16,7 @@ async function getNotes() {
 
   // const res = await fetch('http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30', { cache: 'no-store' });
   // const data = await res.json();
-  return data?.items as any[]
+  return data?.items as any[] 
 }
 
 export default async function NotesPage() {
